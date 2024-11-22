@@ -85,6 +85,7 @@ goto :EOF
         cmd /c copy %curdir%\dep-cache\%zip_file_name% %curdir%\artifacts\
         if !ERRORLEVEL! NEQ 0 (
             call %build_script% :build %platform% %build_type% %vs_version% %dynamic_runtime%
+            echo === copying %curdir%\artifacts\%zip_file_name% ===
             cmd /c copy %curdir%\artifacts\%zip_file_name% %curdir%\dep-cache\
         ) else (
             if not exist deps-build\%arcdir%\%vsdir%\%build_type% md deps-build\%arcdir%\%vsdir%\%build_type%
